@@ -3,6 +3,12 @@
 :root {
 	--background-color: #ffffff;
 	--text-color: #000000;
+	font-family: var(--font-poppins);
+
+	.title {
+		font-size: large;
+		letter-spacing: 0.05rem;
+	}
 }
 
 .dark-theme {
@@ -16,6 +22,14 @@
 	box-sizing: border-box;
 	background-color: var(--background-color);
 	color: var(--text-color);
+}
+
+.gradient-text {
+	background-image: linear-gradient(to bottom right, #4a90e2, #50c878);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	display: inline-block;
 }
 
 @theme {
@@ -308,5 +322,20 @@
 	/* // BASIC */
 	--color-black: #000;
 	--color-white: #fff;
+
+	/* // FONTS */
+	--font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
+	--font-poppins: Poppins, sans-serif;
+
+	/* // TRANSFORMATIONS */
+	--rotate-0: 0deg;
+	--rotate-90: 90deg;
+	--rotate-180: 180deg;
+	--rotate-270: 270deg;
+	--rotate-360: 360deg;
 }
 
