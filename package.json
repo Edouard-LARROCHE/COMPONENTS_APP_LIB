@@ -1,7 +1,7 @@
 {
 	"name": "@leoud/componentcraft",
-	"version": "1.0.0",
-	"description": "Un ensemble de composants React réutilisables",
+	"version": "1.0.6",
+	"description": "A set of reusable React components",
 	"keywords": [
 		"react",
 		"components",
@@ -10,12 +10,18 @@
 		"css-variables"
 	],
 	"license": "MIT",
-	"type": "module",
-	"main": "./dist/index.js",
-	"module": "./dist/index.js",
+	"main": "./dist/index.umd.js",
+	"module": "./dist/index.es.js",
 	"files": [
 		"dist"
 	],
+	"exports": {
+		".": {
+			"import": "./dist/index.es.js",
+			"require": "./dist/index.umd.js"
+		}
+	},
+	"type": "module",
 	"scripts": {
 		"start": "vite",
 		"build": "tsc -b && vite build",
@@ -24,14 +30,13 @@
 		"prepare": "npm run build"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.0.3",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
+		"@types/node": "^22.13.1",
 		"tailwindcss": "^4.0.3",
 		"vite-plugin-dts": "^4.5.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.17.0",
+		"@tailwindcss/vite": "^4.0.3",
 		"@types/react": "^18.3.18",
 		"@types/react-dom": "^18.3.5",
 		"@vitejs/plugin-react": "^4.3.4",
@@ -39,7 +44,8 @@
 		"eslint-plugin-react-hooks": "^5.0.0",
 		"eslint-plugin-react-refresh": "^0.4.16",
 		"globals": "^15.14.0",
-		"react-scripts": "4.0.3",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
 		"typescript": "~5.6.2",
 		"typescript-eslint": "^8.18.2",
 		"vite": "^6.0.5",

@@ -24,16 +24,16 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(__dirname, "src/components/index.ts"),
-			name: "ComponentsAppLib",
-			fileName: (format) => `index.${format}`,
+			name: "ComponentcraftComponents",
+			fileName: (format) => `index.${format}.js`,
+			formats: ["es", "umd"],
 		},
 		rollupOptions: {
-			external: ["react", "react-dom", "tailwindcss"],
+			external: ["react", "react-dom", "react/jsx-runtime"],
 			output: {
 				globals: {
 					react: "React",
 					"react-dom": "ReactDOM",
-					tailwindcss: "tailwindcss",
 				},
 			},
 		},
