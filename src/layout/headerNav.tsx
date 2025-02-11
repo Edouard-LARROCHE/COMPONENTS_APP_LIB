@@ -1,18 +1,23 @@
 import { useState } from "react"
-import IconComponentCarft from "../assets/icons/component-craft.svg?react"
+
 import ReducerButton from "../components/buttons/reducerButton"
+import ToggleButton from "../components/buttons/toggleButton"
+import packageJson from "../../package.json"
+
+import IconComponentCarft from "../assets/icons/component-craft.svg?react"
 
 export default function HeaderNav() {
-	const initialHeight = 28
-	const customHeight = 15
+	const initialHeight = 150
+	const customHeight = 80
 
 	const [containerHeight, setContainerHeight] = useState(initialHeight)
 
 	return (
 		<div
-			className={`h-${containerHeight} bg-neutral-100 flex items-start relative`}
+			className={`bg-neutral-100 dark:bg-slate-800 flex items-start relative`}
+			style={{ height: `${containerHeight}px` }}
 		>
-			<div className="flex items-center">
+			<div className="flex items-center pl-2">
 				<div className="w-12 h-full">
 					{" "}
 					<IconComponentCarft className="w-full" />{" "}
@@ -26,6 +31,14 @@ export default function HeaderNav() {
 				initialHeight={initialHeight}
 				customHeight={customHeight}
 			/>
+			<div className="relative w-[100%] h-[100%] flex justify-end align-middle p-2">
+				<div className="h-7 w-[.05rem] mr-3 ml-3 bg-gray-800 dark:bg-black opacity-10 dark:opacity-50" />
+				<div className="rounded-full h-[max-content] pt-0 pl-2.5 pr-2.5 mt-1 bg-gray-200 dark:bg-gray-700 text-sm">
+					{packageJson.version}
+				</div>
+				<div className="h-7 w-[.05rem] mr-3 ml-3 bg-gray-800 dark:bg-black opacity-10 dark:opacity-50" />
+				<ToggleButton />
+			</div>
 		</div>
 	)
 }

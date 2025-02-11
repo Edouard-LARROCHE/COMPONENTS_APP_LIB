@@ -1,16 +1,24 @@
-import { ReactNode, useState } from "react"
+import { useEffect, useState } from "react"
 import { ThemeContext } from "./ThemeContext"
 
-interface ThemeProviderProps {
-	children: ReactNode
-}
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+	children,
+}) => {
+	const [isDarkMode, setIsDarkMode] = useState<boolean>(
+		() => localStorage.getItem("theme") === "dark"
+	)
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-	const [isDarkMode, setIsDarkMode] = useState(false)
+	useEffect(() => {
+		if (isDarkMode) {
+			document.documentElement.classList.add("dark")
+			localStorage.setItem("theme", "dark")
+		} else {
+			document.documentElement.classList.remove("dark")
+			localStorage.setItem("theme", "light")
+		}
+	}, [isDarkMode])
 
-	const toggleDarkMode = () => {
-		setIsDarkMode(!isDarkMode)
-	}
+	const toggleDarkMode = () => setIsDarkMode((prev) => !prev)
 
 	return (
 		<ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

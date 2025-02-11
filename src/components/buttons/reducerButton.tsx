@@ -49,7 +49,7 @@ export default function ReducerButton({
 							? "left-[0.30rem] top-[.2rem]"
 							: "left-[0.30rem] top-[.1rem]"
 					} flex items-center justify-center text-sm transition-transform duration-400 ${
-						isHovered ? "rotate-[360deg]" : ""
+						isHovered && !isReduce ? "rotate-[360deg]" : ""
 					}`}
 					style={{
 						color: isHovered
