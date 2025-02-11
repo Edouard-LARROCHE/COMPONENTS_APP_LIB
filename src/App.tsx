@@ -1,14 +1,11 @@
-import { useContext } from "react"
-import { ThemeContext } from "./contexts/ThemeContext"
-
 import HeaderNav from "./layout/headerNav"
+import SideBar from "./layout/sideBar"
 
 function App() {
-	const { isDarkMode } = useContext(ThemeContext)
-
 	return (
-		<div className={`App ${isDarkMode ? "dark-theme" : ""}`}>
+		<div className="App">
 			<HeaderNav />
+			<SideBar />
 		</div>
 	)
 }

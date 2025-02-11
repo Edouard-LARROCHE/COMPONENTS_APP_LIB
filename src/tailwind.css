@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
 	--background-color: #ffffff;
@@ -11,7 +12,7 @@
 	}
 }
 
-.dark-theme {
+.dark {
 	--background-color: #1a1a1a;
 	--text-color: #ffffff;
 }
@@ -322,6 +323,9 @@
 	/* // BASIC */
 	--color-black: #000;
 	--color-white: #fff;
+
+	/* // CUSTOM */
+	--color-smoth-black: rgb(29, 30, 58);
 
 	/* // FONTS */
 	--font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
